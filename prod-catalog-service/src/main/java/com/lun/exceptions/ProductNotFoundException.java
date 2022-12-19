@@ -1,9 +1,8 @@
 package com.lun.exceptions;
 
-@SuppressWarnings("serial")
-public class SongNotFoundException extends RuntimeException {
+public class ProductNotFoundException extends RuntimeException {
 
-	public SongNotFoundException(String id) {
-		super(String.format("song with id '%s' not found", id));
+	public ProductNotFoundException(String id) {
+		super(String.format("product id '%s' not found in catalog", id));
 	}
 }

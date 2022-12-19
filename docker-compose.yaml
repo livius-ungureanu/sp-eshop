@@ -1,3 +1,5 @@
+version: '3'
+services:
   mongo:
     container_name: mongo
     image: mongo:4.4.14-rc0-focal
@@ -6,5 +8,18 @@
       - "27017:27017"
     expose:
       - "27017"
-    # volumes:
-    #   - ./mongo-data:/data/db
+    volumes:
+      - ./mongo-pc-data:/data/db
+  postgres-inventory:
+    container_name: postgres-inventory
+    image: postgres
+    environment:
+      POSTGRES_DB: inventory-db
+      POSTGRES_USER: eshopadmin
+      POSTGRES_PASSWORD: password
+      PGDATA: /data/postgres
+    volumes:
+      - ./postgres-inventory-data:/data/postgres
+    ports:
+      - "5432:5432"
+    restart: unless-stopped

@@ -1,4 +1,4 @@
-package com.lun.exceptions;
+package com.lun.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

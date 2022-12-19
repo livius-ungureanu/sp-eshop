@@ -1,4 +1,4 @@
-package dto;
+package com.lun.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,6 +19,7 @@ import java.math.BigDecimal;
 public class ProductResponse {
     private String id;
     private String name;
+    private String sku;
     private String description;
     private BigDecimal price;
 }

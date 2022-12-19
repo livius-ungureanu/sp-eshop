@@ -1,4 +1,4 @@
-package model;
+package com.lun.model;
 
 
 import lombok.AllArgsConstructor;
@@ -20,6 +20,7 @@ public class Product {
     @Id
     private String id;
     private String name;
+    private String sku;
     private String description;
     private BigDecimal price;
 }

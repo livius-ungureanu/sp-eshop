@@ -1,4 +1,4 @@
-package io.educative.mediaapp.model;
+package com.lun.dto;
 
 public enum ErrorCodes {
 

@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
-public class PCExceptionHandler {
+public class ProdCatalogExceptionHandler {
 
 
 	@ExceptionHandler
-	public ResponseEntity<?> songNotFound(SongNotFoundException ex) {
+	public ResponseEntity<?> productNotFound(ProductNotFoundException ex) {
 		return ResponseEntity.badRequest()
 				.body(new ResponseStatusError(1001, ex.getMessage()));
 	}

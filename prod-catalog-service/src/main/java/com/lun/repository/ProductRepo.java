@@ -1,7 +1,7 @@
-package repository;
+package com.lun.repository;
 
-import com.lun.catalog.model.Product;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import com.lun.model.Product;
 
 
 public interface ProductRepo extends MongoRepository<Product, String> {

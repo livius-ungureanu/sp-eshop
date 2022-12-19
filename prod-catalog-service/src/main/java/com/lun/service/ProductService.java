@@ -1,9 +1,9 @@
-package service;
+package com.lun.service;
 
-import com.lun.catalog.dto.ProductRequest;
-import com.lun.catalog.dto.ProductResponse;
-import com.lun.catalog.model.Product;
-import com.lun.catalog.repository.ProductRepo;
+import com.lun.dto.ProductRequest;
+import com.lun.dto.ProductResponse;
+import com.lun.model.Product;
+import com.lun.repository.ProductRepo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -23,6 +23,7 @@ public class ProductService {
         // dto -> model
         Product product = Product.builder()
                 .name(productRequest.getName())
+                .sku(productRequest.getSku())
                 .description(productRequest.getDescription())
                 .price(productRequest.getPrice())
                 .build();
@@ -49,6 +50,7 @@ public class ProductService {
         return ProductResponse.builder()
                 .id(product.getId())
                 .name(product.getName())
+                .sku(product.getSku())
                 .description(product.getDescription())
                 .price(product.getPrice())
                 .build();
@@ -57,5 +59,11 @@ public class ProductService {
     public Optional<ProductResponse> getProduct(String id) {
        return productRepo.findById(id)
             .map(prodcut -> mapToProductResponse(prodcut));
+    }
+
+    public Optional<ProductResponse> getProductBySku(String sku) {
+        return getProducts().stream()
+            .filter(product -> product.getSku().equals(sku))
+            .findFirst();
     }
 }
