@@ -9,7 +9,7 @@ services:
     expose:
       - "27017"
     volumes:
-      - ./mongo-pc-data:/data/db
+      - ../mongo-pc-data:/data/db
   postgres-inventory:
     container_name: postgres-inventory
     image: postgres
@@ -19,7 +19,7 @@ services:
       POSTGRES_PASSWORD: password
       PGDATA: /data/postgres
     volumes:
-      - ./postgres-inventory-data:/data/postgres
+      - ../postgres-inventory-data:/data/postgres
     ports:
       - "5432:5432"
     restart: unless-stopped
